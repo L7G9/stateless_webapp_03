@@ -19,3 +19,10 @@ module "network" {
   name_tag_prefix    = var.name_tag_prefix
   availability_zones = var.availability_zones
 }
+
+module "security" {
+  source = "./modules/security"
+
+  name_tag_prefix = var.name_tag_prefix
+  vpc_id          = module.network.vpc_id
+}
