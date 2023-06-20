@@ -4,6 +4,6 @@ variable "name_tag_prefix" {
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "Id of VPC to add security groups to"
 }
