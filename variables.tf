@@ -13,3 +13,14 @@ variable "availability_zones" {
   type        = list(string)
   description = "Availability zones"
 }
+
+variable "domain_name" {
+  type        = string
+  description = "Name of hosted zone"
+}
+
+variable "subdomain" {
+  type        = string
+  description = "Subdomain to be added to domain name to create alias record in hosted zone"
+  default     = "www"
+}
