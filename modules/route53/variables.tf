@@ -15,5 +15,5 @@ variable "subdomain" {
 
 variable "load_balancer_arn" {
   type        = string
-  description = "Id of load balancer to point alias record to"
+  description = "ARN of load balancer to point alias record to"
 }
