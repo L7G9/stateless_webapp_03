@@ -17,3 +17,8 @@ variable "vpc" {
   type        = string
   description = "ID of VPC to create target group in"
 }
+
+variable "certificate_arn" {
+  type        = string
+  description = ""
+}
