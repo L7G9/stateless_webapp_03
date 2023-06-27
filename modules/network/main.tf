@@ -2,7 +2,7 @@ resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
 
   tags = {
-    Name = "${var.name_tag_prefix}_vpc"
+    Name = "${var.name_tag_prefix}-main"
   }
 }
 
@@ -10,7 +10,7 @@ resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.name_tag_prefix}_igw"
+    Name = "${var.name_tag_prefix}-main"
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_subnet" "public" {
   availability_zone = var.availability_zones[count.index]
 
   tags = {
-    Name = "${var.name_tag_prefix}_public_subnet_${count.index + 1}"
+    Name = "${var.name_tag_prefix}-public-${count.index + 1}"
   }
 }
 
@@ -32,7 +32,7 @@ resource "aws_subnet" "private" {
   availability_zone = var.availability_zones[count.index]
 
   tags = {
-    Name = "${var.name_tag_prefix}_private_subnet_${count.index + 1}"
+    Name = "${var.name_tag_prefix}-private-${count.index + 1}"
   }
 }
 
@@ -40,7 +40,7 @@ resource "aws_eip" "main" {
   vpc = true
 
   tags = {
-    Name = "${var.name_tag_prefix}_nat_eip"
+    Name = "${var.name_tag_prefix}-main"
   }
 }
 
@@ -49,7 +49,7 @@ resource "aws_nat_gateway" "main" {
   subnet_id     = aws_subnet.public[0].id
 
   tags = {
-    Name = "${var.name_tag_prefix}_nat_gateway"
+    Name = "${var.name_tag_prefix}-main"
   }
 
   depends_on = [aws_internet_gateway.main]
@@ -64,7 +64,7 @@ resource "aws_route_table" "private" {
   }
 
   tags = {
-    Name = "${var.name_tag_prefix}_private_route_table"
+    Name = "${var.name_tag_prefix}-private"
   }
 }
 
@@ -83,7 +83,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    Name = "${var.name_tag_prefix}_public_route_table"
+    Name = "${var.name_tag_prefix}-public"
   }
 }
 
