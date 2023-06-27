@@ -54,7 +54,22 @@ resource "aws_vpc_security_group_ingress_rule" "lb_allow_all_http" {
   cidr_ipv4   = "0.0.0.0/0"
 
   tags = {
-    Name = "${var.name_tag_prefix}_lb_sg_ingress_all"
+    Name = "${var.name_tag_prefix}_lb_sg_ingress_http"
+  }
+}
+
+resource "aws_vpc_security_group_ingress_rule" "lb_allow_all_https" {
+  security_group_id = aws_security_group.lb.id
+
+  description = "Allow all inbound https"
+
+  ip_protocol = "tcp"
+  from_port   = 443
+  to_port     = 443
+  cidr_ipv4   = "0.0.0.0/0"
+
+  tags = {
+    Name = "${var.name_tag_prefix}_lb_sg_ingress_https"
   }
 }
 
