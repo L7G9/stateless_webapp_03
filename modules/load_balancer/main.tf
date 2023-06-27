@@ -1,25 +1,25 @@
 resource "aws_lb" "main" {
   internal           = false
   load_balancer_type = "application"
-  security_groups    = var.security_groups
-  subnets            = var.subnets
+  security_groups    = var.security_group_ids
+  subnets            = var.subnet_ids
 
   tags = {
-    Name = "${var.name_tag_prefix}_lb"
+    Name = "${var.name_tag_prefix}-main"
   }
 }
 
 resource "aws_lb_target_group" "main" {
   port     = 80
   protocol = "HTTP"
-  vpc_id   = var.vpc
+  vpc_id   = var.vpc_id
 
   health_check {
     port = 80
   }
 
   tags = {
-    Name = "${var.name_tag_prefix}_lb_tg"
+    Name = "${var.name_tag_prefix}-main"
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_lb_listener" "http" {
   }
 
   tags = {
-    Name = "${var.name_tag_prefix}_lb_http_listener"
+    Name = "${var.name_tag_prefix}-http"
   }
 }
 
@@ -51,6 +51,6 @@ resource "aws_lb_listener" "https" {
   }
 
   tags = {
-    Name = "${var.name_tag_prefix}_lb_https_listener"
+    Name = "${var.name_tag_prefix}-https"
   }
 }

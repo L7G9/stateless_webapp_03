@@ -3,22 +3,22 @@ variable "name_tag_prefix" {
   description = "Prefix to give all name tags of resources created by this module"
 }
 
-variable "security_groups" {
+variable "security_group_ids" {
   type        = list(string)
   description = "List of security group ids to add the load balancer"
 }
 
-variable "subnets" {
+variable "subnet_ids" {
   type        = list(string)
   description = "List of subnet ids to add the load balancer"
 }
 
-variable "vpc" {
+variable "vpc_id" {
   type        = string
   description = "ID of VPC to create target group in"
 }
 
 variable "certificate_arn" {
   type        = string
-  description = ""
+  description = "ARN of the default SSL server certificate"
 }
