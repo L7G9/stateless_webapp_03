@@ -3,7 +3,7 @@ resource "aws_security_group" "instance" {
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = "${var.name_tag_prefix}_instance_sg"
+    Name = "${var.name_tag_prefix}-instance"
   }
 }
 
@@ -17,7 +17,7 @@ resource "aws_vpc_security_group_ingress_rule" "instance_allow_http_from_lb" {
   referenced_security_group_id = aws_security_group.lb.id
 
   tags = {
-    Name = "${var.name_tag_prefix}_instance_sg_ingress"
+    Name = "${var.name_tag_prefix}-instance-allow-http-from-lb-sg"
   }
 }
 
@@ -29,21 +29,21 @@ resource "aws_vpc_security_group_egress_rule" "instance_allow_all" {
   cidr_ipv4   = "0.0.0.0/0"
 
   tags = {
-    Name = "${var.name_tag_prefix}_instance_sg_egress"
+    Name = "${var.name_tag_prefix}-instance-allow-all"
   }
 }
 
 
 resource "aws_security_group" "lb" {
-  description = "Allow all inbound http and all outbound traffic"
+  description = "Allow all inbound http, https and all outbound traffic"
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = "{$var.name_tag_prefix}_lb_sg2"
+    Name = "{$var.name_tag_prefix}-lb"
   }
 }
 
-resource "aws_vpc_security_group_ingress_rule" "lb_allow_all_http" {
+resource "aws_vpc_security_group_ingress_rule" "lb-allow-all-http" {
   security_group_id = aws_security_group.lb.id
 
   description = "Allow all inbound http"
@@ -54,7 +54,7 @@ resource "aws_vpc_security_group_ingress_rule" "lb_allow_all_http" {
   cidr_ipv4   = "0.0.0.0/0"
 
   tags = {
-    Name = "${var.name_tag_prefix}_lb_sg_ingress_http"
+    Name = "${var.name_tag_prefix}-lb-allow-http"
   }
 }
 
@@ -69,7 +69,7 @@ resource "aws_vpc_security_group_ingress_rule" "lb_allow_all_https" {
   cidr_ipv4   = "0.0.0.0/0"
 
   tags = {
-    Name = "${var.name_tag_prefix}_lb_sg_ingress_https"
+    Name = "${var.name_tag_prefix}-lb-allow-https"
   }
 }
 
@@ -81,6 +81,6 @@ resource "aws_vpc_security_group_egress_rule" "lb_allow_all" {
   cidr_ipv4   = "0.0.0.0/0"
 
   tags = {
-    Name = "${var.name_tag_prefix}_lb_sg_egress_all"
+    Name = "${var.name_tag_prefix}-lb-allow-all"
   }
 }
