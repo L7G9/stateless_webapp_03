@@ -34,7 +34,7 @@ module "load_balancer" {
   security_group_ids = [module.security.lb_security_group_id]
   subnet_ids         = module.network.public_subnet_ids
   vpc_id             = module.network.vpc_id
-  certificate_arn    = "arn:aws:acm:eu-west-2:382801774683:certificate/643f4f71-e7d0-4e03-935f-ef6cbd8bdbd0"
+  certificate_arn    = var.certificate_arn
 }
 
 module "auto_scaling_group" {
