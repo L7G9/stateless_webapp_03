@@ -39,7 +39,7 @@ resource "aws_security_group" "lb" {
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = "{$var.name_tag_prefix}-lb"
+    Name = "${var.name_tag_prefix}-lb"
   }
 }
 
