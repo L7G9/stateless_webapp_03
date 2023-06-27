@@ -40,17 +40,17 @@ module "load_balancer" {
 module "auto_scaling_group" {
   source = "./modules/auto_scaling_group"
 
-  name_tag_prefix          = var.name_tag_prefix
-  instance_security_groups = [module.security.instance_security_group_id]
-  instance_subnets         = module.network.private_subnet_ids
-  target_group_arns        = [module.load_balancer.lb_target_group_arn]
+  name_tag_prefix             = var.name_tag_prefix
+  instance_security_group_ids = [module.security.instance_security_group_id]
+  instance_subnet_ids         = module.network.private_subnet_ids
+  target_group_arns           = [module.load_balancer.lb_target_group_arn]
 }
 
 module "route53" {
   source = "./modules/route53"
 
-  name_tag_prefix = var.name_tag_prefix
-  hosted_zone_name = var.domain_name
-  subdomain = var.subdomain
+  name_tag_prefix   = var.name_tag_prefix
+  hosted_zone_name  = var.domain_name
+  subdomain         = var.subdomain
   load_balancer_arn = module.load_balancer.lb_arn
 }
