@@ -1,4 +1,5 @@
 resource "aws_lb" "main" {
+  name = "${var.name_tag_prefix}-main"
   internal           = false
   load_balancer_type = "application"
   security_groups    = var.security_group_ids
