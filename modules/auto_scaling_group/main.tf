@@ -36,6 +36,7 @@ resource "aws_launch_configuration" "main" {
 }
 
 resource "aws_autoscaling_group" "main" {
+  name                      = "${var.name_tag_prefix}-main"
   min_size                  = var.minimum_number_of_instances
   max_size                  = var.maximum_number_of_instances
   desired_capacity          = var.desired_number_of_instances
