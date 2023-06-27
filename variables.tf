@@ -24,8 +24,3 @@ variable "subdomain" {
   description = "Subdomain to be added to domain name to create alias record in hosted zone"
   default     = "www"
 }
-
-variable "certificate_arn" {
-  type        = string
-  description = "ARN of a SSL certificate which has been used to validate owership of the domain name"
-}

@@ -27,6 +27,13 @@ module "security" {
   vpc_id          = module.network.vpc_id
 }
 
+module "certificate" {
+  source = "./modules/certificate"
+
+  name_tag_prefix  = var.name_tag_prefix
+  hosted_zone_name = var.domain_name
+}
+
 module "load_balancer" {
   source = "./modules/load_balancer"
 
@@ -34,7 +41,7 @@ module "load_balancer" {
   security_group_ids = [module.security.lb_security_group_id]
   subnet_ids         = module.network.public_subnet_ids
   vpc_id             = module.network.vpc_id
-  certificate_arn    = var.certificate_arn
+  certificate_arn    = module.certificate.certificate_arn
 }
 
 module "auto_scaling_group" {
