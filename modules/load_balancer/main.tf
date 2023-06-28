@@ -1,5 +1,5 @@
 resource "aws_lb" "main" {
-  name = "${var.name_tag_prefix}-main"
+  name               = "${var.name_tag_prefix}-main"
   internal           = false
   load_balancer_type = "application"
   security_groups    = var.security_group_ids
@@ -30,8 +30,13 @@ resource "aws_lb_listener" "http" {
   protocol          = "HTTP"
 
   default_action {
-    target_group_arn = aws_lb_target_group.main.arn
-    type             = "forward"
+    type = "redirect"
+
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
   }
 
   tags = {
