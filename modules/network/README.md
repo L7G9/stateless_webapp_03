@@ -1,4 +1,32 @@
-# Terraform-docs README placeholder
+# Network Module
+Creates a VPC, with one public and private subnet for each availability passed to the module.  Then provides internet access by attaching an internet gateway to the VPC, a NAT gateway to a public subnet, and route tables for both public and private subnets.
+
+## Example 1 - minimum variables
+
+```
+module "network" {
+  source = "./modules/network"
+
+  name_tag_prefix    = "my-project-"
+  availability_zones = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+}
+```
+
+## Example 2 - all variables
+
+```
+module "network" {
+  source = "./modules/network"
+
+  name_tag_prefix      = "my-project-"
+  availability_zones   = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+  vpc_cidr             = "10.0.0.0/16"
+  public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  private_subnet_cidrs = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+}
+```
+**NOTE:** There should as many public_subnet_cidrs and private_subnet_cidrs as availability_zones.
+
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

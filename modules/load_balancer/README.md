@@ -1,4 +1,18 @@
-# Terraform-docs README placeholder
+# Load Balancer Module
+Creates an application load balancer with one or more subnets assigned to it and target group to add EC2 instances to.  Then creates two listeners, one to redirect all HTTP traffic to HTTPS and one to forward HTTPS traffic to the target group.
+
+## Example
+```
+module "load_balancer" {
+  source = "./modules/load_balancer"
+
+  name_tag_prefix    = "my-project-"
+  security_group_ids = [var.lb_security_group_id]
+  subnet_ids         = var.public_subnet_ids
+  vpc_id             = var.vpc_id
+  certificate_arn    = var.certificate_arn
+}
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

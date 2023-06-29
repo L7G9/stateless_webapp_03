@@ -1,4 +1,19 @@
-# Terraform-docs README placeholder
+# Security Module
+Creates two security groups, one for EC2 instances and one for an application load balancer.  The instance security group allows http from the load balancer security group and all outgoing traffic.  The load balancer allows incoming http and https traffic and and all outgoing traffic.
+
+## Example
+
+```
+module "security" {
+  source = "./modules/security"
+
+  name_tag_prefix = "my-project-"
+  vpc_id          = var.vpc_id
+}
+```
+
+## Example 2 - all variables
+
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

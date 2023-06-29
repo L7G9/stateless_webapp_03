@@ -1,4 +1,15 @@
-# Terraform-docs README placeholder
+# Certificate Module
+Creates a DNS validate certificate for use with SSL.
+
+## Example
+```
+module "certificate" {
+  source = "./modules/certificate"
+
+  name_tag_prefix  = "my-project-"
+  hosted_zone_name = "my-domain.com"
+}
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

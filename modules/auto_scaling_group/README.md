@@ -1,4 +1,35 @@
-# Terraform-docs README placeholder
+# Module Auto Scaling Group
+Creates an auto scaling group using a launch configuration for use with a load balancer target group.
+
+## Example 1 - minimum variables
+
+```
+module "auto_scaling_group" {
+  source = "./modules/auto_scaling_group"
+
+  name_tag_prefix             = "my-project-"
+  instance_security_group_ids = [var.instance_security_group_id]
+  instance_subnet_ids         = var.private_subnet_ids
+  target_group_arns           = [var.lb_target_group_arn]
+}
+```
+
+## Example 2 - all variables
+```
+module "auto_scaling_group" {
+  source = "./modules/auto_scaling_group"
+
+  name_tag_prefix             = "my-project-"
+  instance_type               = "t2.micro"
+  user_data_file_path         = "./files/user-data.sh"
+  minimum_number_of_instances = 1
+  maximum_number_of_instances = 5
+  desired_number_of_instances = 2
+  instance_security_group_ids = [var.instance_security_group_id]
+  instance_subnet_ids         = var.private_subnet_ids
+  target_group_arns           = [var.lb_target_group_arn]
+}
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

@@ -1,4 +1,18 @@
-# Terraform-docs README placeholder
+# Route53 Module
+
+Creates an alias record associated with a load balancer.
+
+## Example
+```
+module "route53" {
+  source = "./modules/route53"
+
+  name_tag_prefix   = "my-project-"
+  hosted_zone_name  = "my-domain.com"
+  subdomain         = "www"
+  load_balancer_arn = var.lb_arn
+}
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
