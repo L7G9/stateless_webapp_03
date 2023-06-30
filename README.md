@@ -84,7 +84,6 @@ Can be integrated into GitHub with the following [workflow]().  After pull reque
 # Main Module Reference
 
 <!-- BEGIN_TF_DOCS -->
-
 ## Requirements
 
 | Name | Version |
