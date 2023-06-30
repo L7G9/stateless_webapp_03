@@ -9,8 +9,8 @@ Builds on [Stateless WebApp #2](https://github.com/L7G9/stateless_webapp_02) by 
 Terraform-doc is used with a GitHub workflow to automatically generate module reference documentation.
 
 This project is made up of 6 modules...
-- [network](https://github.com/L7G9/stateless_webapp_03/blob/main/modules/network/README.md)
-- [security](https://github.com/L7G9/stateless_webapp_03/blob/main/modules/security/README.md)
+- [network](https://github.com/L7G9/stateless_webapp_03/tree/main/modules/network/README.md)
+- [security](https://github.com/L7G9/stateless_webapp_03/tree/main/modules/security/README.md)
 - [certificate](https://github.com/L7G9/stateless_webapp_03/tree/main/modules/certificate)
 - [load_balancer](https://github.com/L7G9/stateless_webapp_03/tree/main/modules/load_balancer)
 - [auto_scaling_group](https://github.com/L7G9/stateless_webapp_03/tree/main/modules/auto_scaling_group)
