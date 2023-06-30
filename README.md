@@ -41,7 +41,7 @@ Update terraform.auto.tfvars file in a text editor with your own values.  The va
 ```
 region             = "eu-west-2"
 availability_zones = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
-domain_name        = "lukegregorydev.co.uk"
+domain_name        = "my-domain.com"
 subdomain          = "www"
 ```
 
@@ -57,7 +57,7 @@ terraform apply
 
 Copy URL from the outputs into web browser.
 ```bash
-route53_alias_name = "www.lukegregorydev.co.uk"
+route53_alias_name = "www.my-domain.com"
 ```
 
 Clean up.
@@ -79,7 +79,7 @@ sudo apt install snapd
 sudo snap install terraform-docs
 ```
 
-Can be integrated into GitHub with the following [workflow]().  After pull request or a push is made to a branch in the repository, it will push the updated documentation to the same branch.
+Can be integrated into GitHub with the following [workflow](https://github.com/L7G9/stateless_webapp_03/blob/main/.github/workflows/documentation.yml).  After pull request or a push is made to a branch in the repository, it will push the updated documentation to the same branch.
 
 ---
 
