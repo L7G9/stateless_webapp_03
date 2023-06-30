@@ -1,5 +1,7 @@
 # Stateless WebApp #3
 
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) [![Terraform-docs](https://github.com/L7G9/stateless_webapp_03/actions/workflows/documentation.yml/badge.svg)](https://github.com/L7G9/stateless_webapp_03/actions/workflows/documentation.yml)
+
 The 3rd part a series of projects deploying a stateless webapp on AWS using Terraform.
 
 ---
