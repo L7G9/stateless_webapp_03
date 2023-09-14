@@ -8,6 +8,8 @@ The 3rd part a series of projects deploying a stateless webapp on AWS using Terr
 
 Builds on [Stateless WebApp #2](https://github.com/L7G9/stateless_webapp_02) by including an Auto Scaling Group to launch and terminate EC2 instances depending on demand.  The Auto Scaling Group and the Application Load Balancer use multiple subnets in different availability zones to achieve high availability.  A DNS validated certificate is created to enable HTTPS access to the Load Balancer.
 
+![AWS Structure Diagram](src/swa-3.png)
+
 Terraform-doc is used with a GitHub workflow to automatically generate module reference documentation.
 
 This project is made up of 6 modules...
